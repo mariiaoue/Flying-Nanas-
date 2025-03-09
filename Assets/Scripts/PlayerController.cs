@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     public Animator anim1;
     public Animator anim2;
+    public Animator anim3;
+
     private bool isLeft = true;
 
     public SwipeListener swipeListener;
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
     
         anim1.SetTrigger("Start");
         anim2.SetTrigger("Start");
+        anim3.SetTrigger("Start");
         startZPosition = transform.position.z;
     }
 
@@ -166,11 +169,13 @@ public class PlayerController : MonoBehaviour
             {
                 anim1.SetBool("DeathRight", true);
                 anim2.SetBool("DeathRight", true);
+                anim3.SetBool("DeathRight", true);
             }
             else
             {
                 anim1.SetBool("DeathLeft", true);
                 anim2.SetBool("DeathLeft", true);
+                anim3.SetBool("DeathLeft", true);
             }
         }
     }

@@ -40,9 +40,7 @@ public class UIController : MonoBehaviour
     public CinemachineVirtualCamera camera1;
     public CinemachineVirtualCamera camera2;
     public CinemachineVirtualCamera camera3;
-    public CinemachineVirtualCamera camera4;
-    public CinemachineVirtualCamera camera5;
-   public GameObject stones;
+  
 
 
 
@@ -52,52 +50,6 @@ public class UIController : MonoBehaviour
     public TMP_InputField inputField;
     public TMP_InputField MoreinputField;
     public TextMeshProUGUI MorePlayerNameText;
-
-
-  void Start()
-  {
-    int level1 = PlayerPrefs.GetInt("Level");
-    if(level1 == 0 || level1 == null)
-    {
-    level1 = 2;
-    }
-    if(level1 == 1)
-    {
-          GroundLevel1.SetActive(true);
-          GroundLevel2.SetActive(false);
-        
-    }
-    if(level1 == 2)
-    {
-          GroundLevel1.SetActive(false);
-          GroundLevel2.SetActive(true);
-       
-    }
-    
-
-  }
-
-
-  public void PlayerNameSelect()
-  {
-    
-   camera4.Priority = 0;
-   string player1Name = PlayerNameText.text;
-   player.SetActive(true);
-      if (string.IsNullOrWhiteSpace(inputField.text))
-   { 
-       FindObjectOfType<AudioManager>().Play("ClickErroe");
-   }
-    else
-    {
-       PlayerPrefs.SetString("playerName", PlayerNameText.text);
-       PlayerPrefs.SetInt("firstTry",1);
-        PlayerNameCanvas.SetActive(false);
-        StartMenuCanvas.SetActive(true);
-        FindObjectOfType<AudioManager>().Play("ButtonClick");
-    }
-    
-  } 
 
    
 
@@ -111,10 +63,11 @@ public class UIController : MonoBehaviour
       
       StartMenuCanvas.SetActive(false);
       HowToPlayCanvas.SetActive(true);
-
-      camera1.Priority = 10;
-      camera2.Priority = 5;
-      stones.SetActive(false);
+      
+      camera1.Priority = 5;
+      camera2.Priority = 10;
+      camera3.Priority = 5;
+      
     
     
    }
@@ -173,75 +126,22 @@ public class UIController : MonoBehaviour
       GameOverCanvas.SetActive(false);
       StartMenuCanvas.SetActive(false);
       MoreCanvas.SetActive(true);
-      MoreinputField.text = PlayerPrefs.GetString("playerName");
+      
      
    }
 
-   public void MorePlayerNameSelect()
-  {
   
-   string player1Name = MorePlayerNameText.text;
-
-      if (string.IsNullOrWhiteSpace(MoreinputField.text))
-   { 
-       FindObjectOfType<AudioManager>().Play("ClickErroe");
-   }
-    else
-    {
-       PlayerPrefs.SetString("playerName", MorePlayerNameText.text);
-      // PlayerPrefs.SetInt("firstTry",1);
-       // PlayerNameCanvas.SetActive(false);
-        //StartMenuCanvas.SetActive(true);
-        FindObjectOfType<AudioManager>().Play("ButtonClick");
-    }
-    
-  } 
-
-   public void DashboardClick()
-   {
-      camera1.Priority = 5;
-      camera2.Priority = 5;
-      camera3.Priority = 10;
-   
-      GameOverCanvas.SetActive(false);
-      DashboardCancelButton.SetActive(true);
-      DashboardContainer.SetActive(true);
-      ScoreCanvas.SetActive(false);
-      StartMenuCanvas.SetActive(false);
-      FindObjectOfType<AudioManager>().Play("ButtonClick");
-   }
-
    public void CharactersClick()
-   {
-      
-      camera5.Priority = 20;
+   { 
+     
       CharctersCanvas.SetActive(true);
       StartMenuCanvas.SetActive(false);
       FindObjectOfType<AudioManager>().Play("ButtonClick");
-   }
-
-   public void CancelDashboardClick()
-   {
-     
       camera1.Priority = 5;
-      camera2.Priority = 10;
-      camera3.Priority = 5;
-
-      DashboardCancelButton.SetActive(false);
-      DashboardContainer.SetActive(false);
-      FindObjectOfType<AudioManager>().Play("ButtonClick");
-
-      int gameoverr = PlayerPrefs.GetInt("gameOver");
-       if(gameoverr == 1)
-      {
-         GameOverCanvas.SetActive(true);
-         
-      }
-      if(gameoverr == 0)
-      {
-         StartMenuCanvas.SetActive(true);
-      }
+      camera2.Priority = 5;
+      camera3.Priority = 10;
    }
+
 
    public void CancelPauseClick()
    {
@@ -297,12 +197,11 @@ public class UIController : MonoBehaviour
 
 
       player.SetActive(true);
-      stones.SetActive(true);
-
-      camera1.Priority = 5;
-      camera2.Priority = 10;
+     
+      camera1.Priority = 10;
+      camera2.Priority = 5;
       camera3.Priority = 5;
-      camera5.Priority = 0;
+    
       
    }
 
@@ -325,99 +224,6 @@ public class UIController : MonoBehaviour
       FindObjectOfType<AudioManager>().Play("ButtonClick");
       SceneManager.LoadScene(0);
     }
-
-    public void LevelsClick()
-    {
-      FindObjectOfType<AudioManager>().Play("ButtonClick");
-      GameOverCanvas.SetActive(false);
-      ScoreCanvas.SetActive(false);
-      player.SetActive(false);
-      StartMenuCanvas.SetActive(false);
-      CreditCanvas.SetActive(false);
-      LevelsCanvas.SetActive(true);
-      int Best = PlayerPrefs.GetInt("HighestScore");
-      Score.text = Best.ToString();
-      int challengesCompleted = PlayerPrefs.GetInt("challengeCompleted", 0);
-      Level3ButtonText.text = $"LEVEL3\n{challengesCompleted}/10 Completed";
-
-      int level = PlayerPrefs.GetInt("Level");
-      if(level == 0 || level == null)
-      {
-        level = 1;
-      }
-      if(level == 1)
-      {
-         level1.interactable = false;
-         level2.interactable = true;
-        
-      }
-      if(level == 2)
-      {
-         level1.interactable = true;
-         level2.interactable = false;
-    
-      }
-      if(level == 3)
-      {
-         level1.interactable = true;
-         level2.interactable = true;
-     
-      }
-
-      
-    }
-
-    public void CancelLevelsClick()
-    {
-      FindObjectOfType<AudioManager>().Play("ButtonClick");
-      GameOverCanvas.SetActive(false);
-      ScoreCanvas.SetActive(false);
-      player.SetActive(true);
-      StartMenuCanvas.SetActive(true);
-      CreditCanvas.SetActive(false);
-      LevelsCanvas.SetActive(false);
-    }
-     
-     public void Level1Click()
-    {
-        level1.interactable = false;
-         level2.interactable = true;
-
-         GroundLevel1.SetActive(true);
-         GroundLevel2.SetActive(false);
-        
-         PlayerPrefs.SetInt("Level",1);
-    }
-
-    public void Level2Click()
-    {
-      int Best = PlayerPrefs.GetInt("HighestScore");
-      if(Best >= 500){
-        level1.interactable = true;
-         level2.interactable = false;
-   
-         GroundLevel1.SetActive(false);
-         GroundLevel2.SetActive(true);
-      
-          PlayerPrefs.SetInt("Level",2);
-      }
-    }
-
-    public void Level3Click()
-    {
-      int Best = PlayerPrefs.GetInt("HighestScore");
-      if(PlayerPrefs.GetInt("challengeCompleted") >= 10){
-        level1.interactable = true;
-         level2.interactable = true;
-      
-         GroundLevel1.SetActive(false);
-         GroundLevel2.SetActive(false);
-       
-         PlayerPrefs.SetInt("Level",3);
-      }
-    }
-
- 
 
 
 

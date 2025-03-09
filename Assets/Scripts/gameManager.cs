@@ -15,8 +15,6 @@ public class gameManager : MonoBehaviour
    public GameObject ScoreCanvas;
    public GameObject player;
    public GameObject ObstaclesSpawner;
-   public GameObject PlatformSpawner;
-   public GameObject HousesSpawner;
 
    public GameObject youlose;
    public GameObject youwin;
@@ -29,6 +27,7 @@ public class gameManager : MonoBehaviour
 
    public CinemachineVirtualCamera camera1;
    public CinemachineVirtualCamera camera2;
+   public CinemachineVirtualCamera camera3;
    
    //public GameObject jumpButtonCanvas;
   
@@ -42,7 +41,8 @@ public class gameManager : MonoBehaviour
 
         int replay = PlayerPrefs.GetInt("replay");
         if(replay == 1){
-        camera1.Priority = 10;
+        camera1.Priority = 5;
+        camera2.Priority = 10;
         camera2.Priority = 5;
        
         StartMenuCanvas.SetActive(false);
@@ -54,8 +54,6 @@ public class gameManager : MonoBehaviour
         
         PlayerPrefs.SetInt("replay",0);
         ObstaclesSpawner.SetActive(true);
-        PlatformSpawner.SetActive(true);
-        HousesSpawner.SetActive(true);
         StartCoroutine(StartCountdown());
        
        
@@ -90,15 +88,15 @@ public class gameManager : MonoBehaviour
 
    public void PlayFirstTime()
    {
-        camera1.Priority = 10;
-        camera2.Priority = 5;
+        camera1.Priority = 5;
+        camera2.Priority = 10;
+        camera3.Priority = 5;
        
         StartMenuCanvas.SetActive(false);
         TapToPlay.SetActive(true);
         ScoreCanvas.SetActive(true);
         ObstaclesSpawner.SetActive(true);
-        PlatformSpawner.SetActive(true);
-        HousesSpawner.SetActive(true);
+ 
      
         player.transform.rotation = Quaternion.identity;
         player.GetComponent<PlayerController>().enabled = true;

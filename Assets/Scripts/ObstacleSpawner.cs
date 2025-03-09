@@ -10,7 +10,9 @@ public class ObstacleSpawner : MonoBehaviour
     public float obstacleLifetime = 15f; // Time before spawned objects are destroyed
 
     public GameObject[] obstaclePrefabs; // Array for obstacle prefabs
-    public GameObject coinPrefab;        // Prefab for coin
+    public GameObject RedGems;        // Prefab for coin
+    public GameObject YellowGems;
+    public GameObject GreenGems;
 
     private float[] lanes = { -3f, 0f, 3f }; // Fixed lanes on the X-axis
 
@@ -19,7 +21,14 @@ public class ObstacleSpawner : MonoBehaviour
     public float timeDecreaseStep = 0.02f;      // Amount to decrease maxTime during each difficulty increase
 
     private float difficultyTimer = 0f;        // Timer to track when to increase difficulty
+    private int charcter;
+    
 
+    void Start()
+    {
+       charcter = PlayerPrefs.GetInt("SelectedCar");
+       Debug.Log("chhhhh + " + charcter);
+    }
     void Update()
     {
         timer += Time.deltaTime;
@@ -67,9 +76,23 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void SpawnCoin()
     {
-        int randomLaneIndex = Random.Range(0, lanes.Length); // Select random lane
 
-        GameObject coin = Instantiate(coinPrefab);
+        int randomLaneIndex = Random.Range(0, lanes.Length); // Select random lane
+        GameObject coin = null;
+
+        if(charcter == 0)
+        {
+          coin = Instantiate(RedGems);
+        }
+        if(charcter == 1)
+        {
+          coin = Instantiate(YellowGems);
+        }
+        if(charcter == 2)
+        {
+          coin = Instantiate(GreenGems);
+        }
+        
         coin.transform.position = new Vector3(lanes[randomLaneIndex], 1f, transform.position.z); // Coins appear slightly above ground
         Destroy(coin, obstacleLifetime);
     }
