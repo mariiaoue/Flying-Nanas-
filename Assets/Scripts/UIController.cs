@@ -17,39 +17,22 @@ public class UIController : MonoBehaviour
     public GameObject player;
     public GameObject SoundOn;
     public GameObject SoundOff;
-    public GameObject BirdChangerCanvas;
+
     public GameObject StartMenuCanvas;
-    public GameObject CreditCanvas;
+
     public GameObject HowToPlayCanvas;
     public GameObject PauseCanvas;
-    public GameObject LevelsCanvas;
+
     public GameObject CharctersCanvas;
 
-    public Button level1;
-    public Button level2;
-
-    public GameObject GroundLevel1;
-    public GameObject GroundLevel2;
-
-    public GameObject DashboardContainer;
-    public GameObject DashboardCancelButton;
-
     public TextMeshProUGUI Score;
-    public TextMeshProUGUI Level3ButtonText;
+
 
     public CinemachineVirtualCamera camera1;
     public CinemachineVirtualCamera camera2;
     public CinemachineVirtualCamera camera3;
   
 
-
-
-   public GameObject PlayerNameCanvas;
-    public TextMeshProUGUI PlayerNameText;
-
-    public TMP_InputField inputField;
-    public TMP_InputField MoreinputField;
-    public TextMeshProUGUI MorePlayerNameText;
 
    
 
@@ -223,6 +206,12 @@ public class UIController : MonoBehaviour
       PlayerPrefs.SetInt("replay",0);
       FindObjectOfType<AudioManager>().Play("ButtonClick");
       SceneManager.LoadScene(0);
+    }
+
+
+    public void QuitGame()
+    {
+      Application.Quit();
     }
 
 

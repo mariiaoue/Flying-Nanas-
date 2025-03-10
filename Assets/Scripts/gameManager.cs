@@ -11,7 +11,7 @@ public class gameManager : MonoBehaviour
 {
    public GameObject gameOverCanvas;
    public GameObject StartMenuCanvas;
-   public GameObject TapToPlay;
+
    public GameObject ScoreCanvas;
    public GameObject player;
    public GameObject ObstaclesSpawner;
@@ -43,10 +43,10 @@ public class gameManager : MonoBehaviour
         if(replay == 1){
         camera1.Priority = 5;
         camera2.Priority = 10;
-        camera2.Priority = 5;
+        camera3.Priority = 5;
        
         StartMenuCanvas.SetActive(false);
-        TapToPlay.SetActive(true);
+       
         ScoreCanvas.SetActive(true);
         
         player.transform.rotation = Quaternion.identity;
@@ -93,7 +93,7 @@ public class gameManager : MonoBehaviour
         camera3.Priority = 5;
        
         StartMenuCanvas.SetActive(false);
-        TapToPlay.SetActive(true);
+
         ScoreCanvas.SetActive(true);
         ObstaclesSpawner.SetActive(true);
  

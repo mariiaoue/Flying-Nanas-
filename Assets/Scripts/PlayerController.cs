@@ -120,6 +120,24 @@ public class PlayerController : MonoBehaviour
 
         // Calculate the distance traveled
         distance = transform.position.z - startZPosition;
+
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+    {
+        OnSwipe("Left");
+    }
+    else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+    {
+        OnSwipe("Right");
+    }
+    else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+    {
+        OnSwipe("Up");
+    }
+    else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+    {
+        OnSwipe("Down");
+    }
     }
 
     IEnumerator SpeedBoost()
