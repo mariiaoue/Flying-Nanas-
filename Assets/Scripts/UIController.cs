@@ -13,7 +13,7 @@ public class UIController : MonoBehaviour
    
 
     public GameObject ScoreCanvas;
-    public GameObject MoreCanvas;
+
     public GameObject player;
     public GameObject SoundOn;
     public GameObject SoundOff;
@@ -22,15 +22,15 @@ public class UIController : MonoBehaviour
 
     public GameObject HowToPlayCanvas;
     public GameObject PauseCanvas;
+    public GameObject ChooseGemCanvas;
 
     public GameObject CharctersCanvas;
 
+    public GameObject backstory1;
+    public GameObject backstory2;
+
     public TextMeshProUGUI Score;
 
-
-    public CinemachineVirtualCamera camera1;
-    public CinemachineVirtualCamera camera2;
-    public CinemachineVirtualCamera camera3;
   
 
 
@@ -40,19 +40,12 @@ public class UIController : MonoBehaviour
    {
        FindObjectOfType<AudioManager>().Play("ButtonClick");
       
-
-      GameOverCanvas.SetActive(false);
       ScoreCanvas.SetActive(false);
       
       StartMenuCanvas.SetActive(false);
       HowToPlayCanvas.SetActive(true);
       
-      camera1.Priority = 5;
-      camera2.Priority = 10;
-      camera3.Priority = 5;
-      
-    
-    
+
    }
 
    public void PauseClick()
@@ -87,43 +80,29 @@ public class UIController : MonoBehaviour
    }
 
 
-   public void MoreClick()
-   {
-    
-       FindObjectOfType<AudioManager>().Play("ButtonClick");
-      int mute = PlayerPrefs.GetInt("mute");
-      
-       if(mute == 1)
-       {
-         SoundOn.SetActive(false);
-         SoundOff.SetActive(true);
-       }
-       if(mute == 0 || mute == null)
-       {
-         SoundOn.SetActive(true);
-         SoundOff.SetActive(false);
-       }
-
-      
-      ScoreCanvas.SetActive(false);
-      GameOverCanvas.SetActive(false);
-      StartMenuCanvas.SetActive(false);
-      MoreCanvas.SetActive(true);
-      
-     
-   }
-
   
-   public void CharactersClick()
-   { 
-     
-      CharctersCanvas.SetActive(true);
-      StartMenuCanvas.SetActive(false);
-      FindObjectOfType<AudioManager>().Play("ButtonClick");
-      camera1.Priority = 5;
-      camera2.Priority = 5;
-      camera3.Priority = 10;
+
+   public void BackstoryNext()
+   {
+      backstory1.SetActive(false);
+      backstory2.SetActive(true);
    }
+
+   public void BackstoryMainMenu()
+   {
+      HowToPlayCanvas.SetActive(false);
+      StartMenuCanvas.SetActive(true);
+      backstory1.SetActive(true);
+      backstory2.SetActive(false);
+   }
+
+   public void StartMenuCanvasPlayButton()
+   {
+      StartMenuCanvas.SetActive(false);
+      ChooseGemCanvas.SetActive(true);
+   }
+
+ 
 
 
    public void CancelPauseClick()
@@ -138,28 +117,6 @@ public class UIController : MonoBehaviour
     
    }
 
-
-   public void CancelMoreClick()
-   {
-      FindObjectOfType<AudioManager>().Play("ButtonClick");
-      int gameoverr = PlayerPrefs.GetInt("gameOver");
-      if(gameoverr == 1)
-      {
-         GameOverCanvas.SetActive(true);
-      
-      }
-      if(gameoverr == 0)
-      {
-         StartMenuCanvas.SetActive(true);
-      }
-
-      MoreCanvas.SetActive(false);
-
-
-      player.SetActive(true);
-    
-      
-   }
 
    public void CancelHowToPlayClick()
    {
@@ -180,10 +137,7 @@ public class UIController : MonoBehaviour
 
 
       player.SetActive(true);
-     
-      camera1.Priority = 10;
-      camera2.Priority = 5;
-      camera3.Priority = 5;
+ 
     
       
    }

@@ -10,14 +10,13 @@ using TMPro;
 public class gameManager : MonoBehaviour
 {
    public GameObject gameOverCanvas;
+   public GameObject youwinCanvas;
    public GameObject StartMenuCanvas;
+   public GameObject ChooseGemCanvas;
 
    public GameObject ScoreCanvas;
    public GameObject player;
    public GameObject ObstaclesSpawner;
-
-   public GameObject youlose;
-   public GameObject youwin;
 
    public TextMeshProUGUI timerText; // this for countdown display
    public TextMeshProUGUI Score; 
@@ -25,9 +24,7 @@ public class gameManager : MonoBehaviour
    private bool isCounting = false; 
 
 
-   public CinemachineVirtualCamera camera1;
-   public CinemachineVirtualCamera camera2;
-   public CinemachineVirtualCamera camera3;
+
    
    //public GameObject jumpButtonCanvas;
   
@@ -41,9 +38,7 @@ public class gameManager : MonoBehaviour
 
         int replay = PlayerPrefs.GetInt("replay");
         if(replay == 1){
-        camera1.Priority = 5;
-        camera2.Priority = 10;
-        camera3.Priority = 5;
+
        
         StartMenuCanvas.SetActive(false);
        
@@ -72,11 +67,9 @@ public class gameManager : MonoBehaviour
 
    public void GameOverDelayed()
    {
-      gameOverCanvas.SetActive(true);
       ScoreCanvas.SetActive(false);
-      youlose.SetActive(true);
       Time.timeScale = 0;
-      
+      GameOverFinishTime();
    }
 
    public void Replay()
@@ -88,11 +81,8 @@ public class gameManager : MonoBehaviour
 
    public void PlayFirstTime()
    {
-        camera1.Priority = 5;
-        camera2.Priority = 10;
-        camera3.Priority = 5;
-       
-        StartMenuCanvas.SetActive(false);
+   
+        ChooseGemCanvas.SetActive(false);
 
         ScoreCanvas.SetActive(true);
         ObstaclesSpawner.SetActive(true);
@@ -129,15 +119,15 @@ public class gameManager : MonoBehaviour
       
       int score = int.Parse(Score.text);
 
-      if(score > 49)
+      if(score < 50)
       {
          gameOverCanvas.SetActive(true);
          ScoreCanvas.SetActive(false);
-         youwin.SetActive(true);
+         
       }else{
-        gameOverCanvas.SetActive(true);
+        youwinCanvas.SetActive(true);
         ScoreCanvas.SetActive(false);
-        youlose.SetActive(true);
+       
       }
       Time.timeScale = 0;
       

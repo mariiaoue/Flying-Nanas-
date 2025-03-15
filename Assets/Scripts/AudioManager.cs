@@ -1,7 +1,6 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
-using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,11 +8,8 @@ public class AudioManager : MonoBehaviour
     public GameObject SoundOn;
     public GameObject SoundOff;
     private GameObject BackgroundSong;
-    public Slider mSlider;
-    private AudioSource m_MyAudioSource;
     void Awake()
     {
-      m_MyAudioSource = GameObject.FindGameObjectWithTag("music").GetComponent<AudioSource>();
       BackgroundSong = GameObject.Find("BackgroundSong");
 
       int mute = PlayerPrefs.GetInt("mute");
@@ -36,19 +32,6 @@ public class AudioManager : MonoBehaviour
 
         }
 
-    }
-
-    void Start()
-    {
-       float x = PlayerPrefs.GetFloat("volumeisnull");
-       Debug.Log("volume ="+x);
-      if(x == 0){
-         PlayerPrefs.SetFloat("volume",1);
-         PlayerPrefs.SetFloat("volumeisnull",1);
-      }else{
-        mSlider.value = PlayerPrefs.GetFloat("volume");
-      }
-      AudioChanger();
     }
 
 
@@ -85,36 +68,6 @@ public class AudioManager : MonoBehaviour
        }
         mute = PlayerPrefs.GetInt("mute");
        
-   }
-
-
-   public void AudioChanged()
-   {
-
-    foreach (Sound s in sounds)
-        {
-         
-         
-          s.source.volume = mSlider.value;
-          m_MyAudioSource.volume = mSlider.value;
-          PlayerPrefs.SetFloat("volume", mSlider.value);
-          
-        }
-
-   }
-
-   private void AudioChanger()
-   {
-
-    foreach (Sound s in sounds)
-        {
-         
-         mSlider.value = PlayerPrefs.GetFloat("volume"); 
-          s.source.volume = mSlider.value;
-          m_MyAudioSource.volume = mSlider.value;
-          
-        }
-
    }
 
   

@@ -10,7 +10,7 @@ public class ObstacleSpawner : MonoBehaviour
     public float obstacleLifetime = 15f; // Time before spawned objects are destroyed
 
     public GameObject[] obstaclePrefabs; // Array for obstacle prefabs
-    public GameObject RedGems;        // Prefab for coin
+    public GameObject RedGems;        // Prefab for gems
     public GameObject YellowGems;
     public GameObject GreenGems;
 
@@ -21,13 +21,13 @@ public class ObstacleSpawner : MonoBehaviour
     public float timeDecreaseStep = 0.02f;      // Amount to decrease maxTime during each difficulty increase
 
     private float difficultyTimer = 0f;        // Timer to track when to increase difficulty
-    private int charcter;
+    private int gem;
     
 
     void Start()
     {
-       charcter = PlayerPrefs.GetInt("SelectedCar");
-       Debug.Log("chhhhh + " + charcter);
+      gem = PlayerPrefs.GetInt("GemSelected");
+       
     }
     void Update()
     {
@@ -58,8 +58,8 @@ public class ObstacleSpawner : MonoBehaviour
         }
         else
         {
-            // Spawn coin (30% chance)
-            SpawnCoin();
+            // Spawn gem (30% chance)
+            SpawnGem();
         }
     }
 
@@ -74,27 +74,27 @@ public class ObstacleSpawner : MonoBehaviour
         Destroy(obstacle, obstacleLifetime);
     }
 
-    private void SpawnCoin()
+    private void SpawnGem()
     {
 
         int randomLaneIndex = Random.Range(0, lanes.Length); // Select random lane
-        GameObject coin = null;
+        GameObject Gem = null;
 
-        if(charcter == 0)
+        if(gem == 1)
         {
-          coin = Instantiate(RedGems);
+          Gem = Instantiate(RedGems);
         }
-        if(charcter == 1)
+        if(gem == 3)
         {
-          coin = Instantiate(YellowGems);
+          Gem = Instantiate(YellowGems);
         }
-        if(charcter == 2)
+        if(gem == 2)
         {
-          coin = Instantiate(GreenGems);
+          Gem = Instantiate(GreenGems);
         }
         
-        coin.transform.position = new Vector3(lanes[randomLaneIndex], 1f, transform.position.z); // Coins appear slightly above ground
-        Destroy(coin, obstacleLifetime);
+        Gem.transform.position = new Vector3(lanes[randomLaneIndex], 1f, transform.position.z); 
+        Destroy(Gem, obstacleLifetime);
     }
 
     private void IncreaseDifficulty()

@@ -1,62 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-public class CharcterSelection : MonoBehaviour
+public class GemController : MonoBehaviour
 {
+    public GameObject blossom;
+    public GameObject buttercup;
+    public GameObject bubbles;
+    
 
-    public Button previosButton;
-    public Button nextButton;
-  
-    private int currentCar;
-    private int SelecttCar;
- 
-
-
-    private void Awake()
+    void Start()
     {
-          
-         SelecttCar = PlayerPrefs.GetInt("SelectedCar");
-
-        if(SelecttCar != null)
-        {
-          SelectCar(SelecttCar);
-          PlayerPrefs.SetInt("currentCar",SelecttCar);
-        }else{
-          SelectCar(0);
-          PlayerPrefs.SetInt("currentCar",0);
-        }
-        
+      int gem = PlayerPrefs.GetInt("GemSelected");
+      if(gem == 1 || gem == null)
+      {
+         RedGem();
+      }
+      if(gem == 2)
+      {
+        GreenGem();
+      }
+      if(gem == 3)
+      {
+        BlueGem();
+      }
+    }
+    public void RedGem()
+    {
+        ActivateObject(blossom, buttercup, bubbles);
+        PlayerPrefs.SetInt("GemSelected",1);
     }
 
-   
-
-    public void ChangeCar(int _change)
+    public void GreenGem()
     {
-      FindObjectOfType<AudioManager>().Play("ButtonClick");
-       currentCar = PlayerPrefs.GetInt("currentCar");
-       currentCar += _change;
-       SelectCar(currentCar);
-       PlayerPrefs.SetInt("currentCar",currentCar);
-       PlayerPrefs.SetInt("SelectedCar",currentCar);
-      
-      
+        ActivateObject(buttercup, blossom, bubbles);
+        PlayerPrefs.SetInt("GemSelected",2);
     }
 
- 
-    private void SelectCar(int _index)
+    public void BlueGem()
     {
-        previosButton.gameObject.SetActive(_index != 0);
-        nextButton.gameObject.SetActive(_index != transform.childCount-1);
-        
-        
-       for (int i = 0; i < transform.childCount; i++)
-       {
-        transform.GetChild(i).gameObject.SetActive(i == _index);
-       }
+        ActivateObject(bubbles, blossom, buttercup);
+        PlayerPrefs.SetInt("GemSelected",3);
     }
 
-
+    private void ActivateObject(GameObject toActivate, GameObject toDeactivate1, GameObject toDeactivate2)
+    {
+        if (toActivate != null) toActivate.SetActive(true);
+        if (toDeactivate1 != null) toDeactivate1.SetActive(false);
+        if (toDeactivate2 != null) toDeactivate2.SetActive(false);
+    }
 }

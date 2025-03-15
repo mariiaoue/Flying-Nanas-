@@ -201,14 +201,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dashboard()
     {
-        int First = PlayerPrefs.GetInt("HighestScore");
-        if (int.Parse(Score.text) > First)
-        {
-            PlayerPrefs.SetInt("HighestScore", int.Parse(Score.text));
-        }
-        int Best = PlayerPrefs.GetInt("HighestScore");
-        BestScore.text = Best.ToString();
-        GameOverBestScore.text = Best.ToString();
-        GameOverScore.text = Score.text;
+        
+        GameOverScore.text = Score.text + " gems";
     }
 }
