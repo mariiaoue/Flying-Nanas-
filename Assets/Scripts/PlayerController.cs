@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public float runSpeed = 5f;
-    public float maxRunSpeed = 15f;
+    private float timeElapsed = 0f;
     public float speedIncreaseRate = 0.1f;
     public float laneChangeSpeed = 10f;
     public float laneDistance = 2f;
@@ -27,9 +27,8 @@ public class PlayerController : MonoBehaviour
     public gameManager gamemanager;
 
     public TextMeshProUGUI Score;
-    public TextMeshProUGUI BestScore;
-    public TextMeshProUGUI GameOverBestScore;
     public TextMeshProUGUI GameOverScore;
+    public TextMeshProUGUI YouwinScore;
 
     private float startZPosition;
     private float distance;
@@ -102,8 +101,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Gradually increase speed over time, capped at maxRunSpeed
-        runSpeed = Mathf.Min(maxRunSpeed, runSpeed + speedIncreaseRate * Time.deltaTime);
+        
 
         // Speed Boost Activation
         if (Input.GetKeyDown(KeyCode.Space) && !isBoosting)
@@ -120,6 +118,14 @@ public class PlayerController : MonoBehaviour
 
         // Calculate the distance traveled
         distance = transform.position.z - startZPosition;
+
+        // make the player faster each 20 sec
+        timeElapsed += Time.deltaTime;
+       if (timeElapsed >= 20f)
+        {
+        runSpeed += 5f;
+        timeElapsed = 0f; // Reset timer
+          }
 
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
@@ -182,19 +188,6 @@ public class PlayerController : MonoBehaviour
             Dashboard();
             gamemanager.GameOver();
             gameObject.GetComponent<PlayerController>().enabled = false;
-
-            if (isLeft)
-            {
-                anim1.SetBool("DeathRight", true);
-                anim2.SetBool("DeathRight", true);
-                anim3.SetBool("DeathRight", true);
-            }
-            else
-            {
-                anim1.SetBool("DeathLeft", true);
-                anim2.SetBool("DeathLeft", true);
-                anim3.SetBool("DeathLeft", true);
-            }
         }
     }
 }
@@ -203,5 +196,6 @@ public class PlayerController : MonoBehaviour
     {
         
         GameOverScore.text = Score.text + " gems";
+        YouwinScore.text = Score.text + " gems";
     }
 }

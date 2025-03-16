@@ -31,6 +31,10 @@ public class UIController : MonoBehaviour
 
     public TextMeshProUGUI Score;
 
+    public GameObject PauseButton;
+    public GameObject ResumeButton;
+    public AudioSource audioSource;
+
   
 
 
@@ -51,31 +55,21 @@ public class UIController : MonoBehaviour
    public void PauseClick()
    {
        FindObjectOfType<AudioManager>().Play("ButtonClick");
-      
-
       Time.timeScale = 0;
-      
-      
 
+      PauseButton.SetActive(false);
+      ResumeButton.SetActive(true);
+      audioSource.Pause();
+   }
+
+   public void ResumeClick()
+   {
        FindObjectOfType<AudioManager>().Play("ButtonClick");
-      int mute = PlayerPrefs.GetInt("mute");
-      
-       if(mute == 1)
-       {
-         SoundOn.SetActive(false);
-         SoundOff.SetActive(true);
-       }
-       if(mute == 0 || mute == null)
-       {
-         SoundOn.SetActive(true);
-         SoundOff.SetActive(false);
-       }
+      Time.timeScale = 1;
 
-      
-      ScoreCanvas.SetActive(false);
-      GameOverCanvas.SetActive(false);
-      StartMenuCanvas.SetActive(false);
-      PauseCanvas.SetActive(true);
+      PauseButton.SetActive(true);
+      ResumeButton.SetActive(false);
+      audioSource.Play();
      
    }
 
