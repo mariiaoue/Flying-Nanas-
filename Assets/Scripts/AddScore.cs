@@ -8,9 +8,6 @@ public class AddScore : MonoBehaviour
      {
         
         Score.score++;
-        int total = PlayerPrefs.GetInt("TotalScore");
-        total ++;
-         PlayerPrefs.SetInt("TotalScore",total );
         FindObjectOfType<AudioManager>().Play("scored");
         Destroy(gameObject);
      }

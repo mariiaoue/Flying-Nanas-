@@ -1657,7 +1657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &277891173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3281,7 +3281,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -4776,7 +4776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &660603279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5855,7 +5855,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.041558646, y: -0.00000004758435, z: 0.000000001979251, w: 0.9991361}
+  m_LocalRotation: {x: 0.041558646, y: 1e-45, z: 0, w: 0.9991361}
   m_LocalPosition: {x: 0, y: 3, z: -7.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6171,7 +6171,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050819797}
-  m_LocalRotation: {x: 0.041558646, y: -0.00000004758435, z: 0.000000001979251, w: 0.9991361}
+  m_LocalRotation: {x: 0.041558646, y: 1e-45, z: 0, w: 0.9991361}
   m_LocalPosition: {x: 0, y: 3, z: -7.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9003,16 +9003,12 @@ MonoBehaviour:
   GameOverCanvas: {fileID: 1807571558}
   ScoreCanvas: {fileID: 353987454}
   player: {fileID: 55822167}
-  SoundOn: {fileID: 0}
-  SoundOff: {fileID: 0}
   StartMenuCanvas: {fileID: 277891172}
-  HowToPlayCanvas: {fileID: 1589262904}
+  BackstoryCanvas: {fileID: 0}
   PauseCanvas: {fileID: 0}
   ChooseGemCanvas: {fileID: 660603278}
-  CharctersCanvas: {fileID: 0}
   backstory1: {fileID: 941173486}
   backstory2: {fileID: 371177198}
-  Score: {fileID: 0}
   PauseButton: {fileID: 2094418270}
   ResumeButton: {fileID: 1839994028}
   audioSource: {fileID: 1655163925}

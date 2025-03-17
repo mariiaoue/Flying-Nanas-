@@ -10,27 +10,17 @@ using Cinemachine;
 public class UIController : MonoBehaviour
 {
     public GameObject GameOverCanvas;
-   
-
     public GameObject ScoreCanvas;
-
     public GameObject player;
-    public GameObject SoundOn;
-    public GameObject SoundOff;
-
     public GameObject StartMenuCanvas;
 
-    public GameObject HowToPlayCanvas;
+    public GameObject BackstoryCanvas;
     public GameObject PauseCanvas;
     public GameObject ChooseGemCanvas;
 
-    public GameObject CharctersCanvas;
-
     public GameObject backstory1;
     public GameObject backstory2;
-
-    public TextMeshProUGUI Score;
-
+    
     public GameObject PauseButton;
     public GameObject ResumeButton;
     public AudioSource audioSource;
@@ -47,7 +37,7 @@ public class UIController : MonoBehaviour
       ScoreCanvas.SetActive(false);
       
       StartMenuCanvas.SetActive(false);
-      HowToPlayCanvas.SetActive(true);
+      BackstoryCanvas.SetActive(true);
       
 
    }
@@ -84,7 +74,7 @@ public class UIController : MonoBehaviour
 
    public void BackstoryMainMenu()
    {
-      HowToPlayCanvas.SetActive(false);
+      BackstoryCanvas.SetActive(false);
       StartMenuCanvas.SetActive(true);
       backstory1.SetActive(true);
       backstory2.SetActive(false);
@@ -126,10 +116,7 @@ public class UIController : MonoBehaviour
          StartMenuCanvas.SetActive(true);
       }
 
-      HowToPlayCanvas.SetActive(false);
-      CharctersCanvas.SetActive(false);
-
-
+      BackstoryCanvas.SetActive(false);
       player.SetActive(true);
  
     
