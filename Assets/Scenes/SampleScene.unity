@@ -9004,7 +9004,7 @@ MonoBehaviour:
   ScoreCanvas: {fileID: 353987454}
   player: {fileID: 55822167}
   StartMenuCanvas: {fileID: 277891172}
-  BackstoryCanvas: {fileID: 0}
+  BackstoryCanvas: {fileID: 1589262904}
   PauseCanvas: {fileID: 0}
   ChooseGemCanvas: {fileID: 660603278}
   backstory1: {fileID: 941173486}
