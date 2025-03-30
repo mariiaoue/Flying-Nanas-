@@ -119,7 +119,7 @@ public class gameManager : MonoBehaviour
       
       int score = int.Parse(Score.text);
 
-      if(score < 50)
+      if(score < 100)
       {
          gameOverCanvas.SetActive(true);
          ScoreCanvas.SetActive(false);

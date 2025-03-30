@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
         // make the player faster each 20 sec
         timeElapsed += Time.deltaTime;
-       if (timeElapsed >= 20f)
+       if (timeElapsed >= 5f)
         {
         runSpeed += 5f;
         timeElapsed = 0f; // Reset timer

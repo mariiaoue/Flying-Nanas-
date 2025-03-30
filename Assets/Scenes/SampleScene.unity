@@ -3776,9 +3776,9 @@ MonoBehaviour:
   RedGems: {fileID: 5438644990680328005, guid: 864fef3ddbcfaec40bab4547759a0d4b, type: 3}
   YellowGems: {fileID: 5438644990680328005, guid: a35b0a4615cc64a4a9d0b6cdff12d7fb, type: 3}
   GreenGems: {fileID: 5438644990680328005, guid: 2020af40b1aac4d4c8451f3241d62f33, type: 3}
-  difficultyIncreaseRate: 3
+  difficultyIncreaseRate: 5
   minMaxTime: 0.6
-  timeDecreaseStep: 0.02
+  timeDecreaseStep: 0.25
 --- !u!1 &564057062
 GameObject:
   m_ObjectHideFlags: 0
@@ -5106,7 +5106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 05182914eabc1ba469f3ee5edc0cdd3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e658dd504f9ba7e428e7e0256f14a943, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5855,7 +5855,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.041558646, y: 1e-45, z: 0, w: 0.9991361}
+  m_LocalRotation: {x: 0.041558646, y: 0.000000047576854, z: -0.0000000019789392, w: 0.9991361}
   m_LocalPosition: {x: 0, y: 3, z: -7.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6171,7 +6171,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050819797}
-  m_LocalRotation: {x: 0.041558646, y: 1e-45, z: 0, w: 0.9991361}
+  m_LocalRotation: {x: 0.041558646, y: 0.000000047576854, z: -0.0000000019789392, w: 0.9991361}
   m_LocalPosition: {x: 0, y: 3, z: -7.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7929,8 +7929,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250, y: 0}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchoredPosition: {x: 350, y: 0}
+  m_SizeDelta: {x: 250, y: 310}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1391895052
 MonoBehaviour:
@@ -8001,14 +8001,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.65882355, b: 0.16470589, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8fbda24431dc82b46999851d97f3f9b8, type: 3}
+  m_Sprite: {fileID: 1108538811, guid: 58bd8052fe96b234ea27d5472e9a30bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8226,7 +8226,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 250}
+  m_SizeDelta: {x: 210, y: 310}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1521901062
 MonoBehaviour:
@@ -8297,14 +8297,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7372549, g: 0, b: 0.03529412, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8fbda24431dc82b46999851d97f3f9b8, type: 3}
+  m_Sprite: {fileID: -556925488, guid: 211f29fe20252db4a89f998b821a7edd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10807,8 +10807,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 0}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchoredPosition: {x: -350, y: 0}
+  m_SizeDelta: {x: 210, y: 310}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1887043172
 MonoBehaviour:
@@ -10879,14 +10879,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.65882355, b: 0.87058824, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8fbda24431dc82b46999851d97f3f9b8, type: 3}
+  m_Sprite: {fileID: 1362880394, guid: 7725d6e510beed54bbe8577988dd66bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11308,7 +11308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "get a minimum of 50 gems under 2 minutes \nto save them"
+  m_text: "get a minimum of 100 gems under 2 minutes \nto save them"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71d8b8b38d8c6994a9012cd408df3cdd, type: 2}
   m_sharedMaterial: {fileID: -3665928374100666527, guid: 71d8b8b38d8c6994a9012cd408df3cdd, type: 2}
