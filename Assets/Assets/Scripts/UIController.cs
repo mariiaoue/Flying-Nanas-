@@ -1,0 +1,154 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.IO;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using Cinemachine;
+
+public class UIController : MonoBehaviour
+{
+    public GameObject GameOverCanvas;
+    public GameObject ScoreCanvas;
+    public GameObject player;
+    public GameObject StartMenuCanvas;
+
+    public GameObject BackstoryCanvas;
+    public GameObject PauseCanvas;
+    public GameObject ChooseGemCanvas;
+
+    public GameObject backstory1;
+    public GameObject backstory2;
+    
+    public GameObject PauseButton;
+    public GameObject ResumeButton;
+    public AudioSource audioSource;
+
+  
+
+
+   
+
+   public void HowToPlayClick()
+   {
+       FindObjectOfType<AudioManager>().Play("ButtonClick");
+      
+      ScoreCanvas.SetActive(false);
+      
+      StartMenuCanvas.SetActive(false);
+      BackstoryCanvas.SetActive(true);
+      
+
+   }
+
+   public void PauseClick()
+   {
+       FindObjectOfType<AudioManager>().Play("ButtonClick");
+      Time.timeScale = 0;
+
+      PauseButton.SetActive(false);
+      ResumeButton.SetActive(true);
+      audioSource.Pause();
+   }
+
+   public void ResumeClick()
+   {
+       FindObjectOfType<AudioManager>().Play("ButtonClick");
+      Time.timeScale = 1;
+
+      PauseButton.SetActive(true);
+      ResumeButton.SetActive(false);
+      audioSource.Play();
+     
+   }
+
+
+  
+
+   public void BackstoryNext()
+   {
+      backstory1.SetActive(false);
+      backstory2.SetActive(true);
+   }
+
+   public void BackstoryMainMenu()
+   {
+      BackstoryCanvas.SetActive(false);
+      StartMenuCanvas.SetActive(true);
+      backstory1.SetActive(true);
+      backstory2.SetActive(false);
+   }
+
+   public void StartMenuCanvasPlayButton()
+   {
+      StartMenuCanvas.SetActive(false);
+      ChooseGemCanvas.SetActive(true);
+   }
+
+ 
+
+
+   public void CancelPauseClick()
+   {
+       FindObjectOfType<AudioManager>().Play("ButtonClick");
+      
+
+      Time.timeScale = 1;
+      PauseCanvas.SetActive(false);
+      ScoreCanvas.SetActive(true);
+      
+    
+   }
+
+
+   public void CancelHowToPlayClick()
+   {
+      FindObjectOfType<AudioManager>().Play("ButtonClick");
+      int gameoverr = PlayerPrefs.GetInt("gameOver");
+      if(gameoverr == 1)
+      {
+         GameOverCanvas.SetActive(true);
+      
+      }
+      if(gameoverr == 0)
+      {
+         StartMenuCanvas.SetActive(true);
+      }
+
+      BackstoryCanvas.SetActive(false);
+      player.SetActive(true);
+ 
+    
+      
+   }
+
+   
+
+
+   public void FromGameOverMrnu()
+   {
+       PlayerPrefs.SetInt("gameOver",1);
+   }
+   public void FromStartMenu()
+   {
+     PlayerPrefs.SetInt("gameOver",0);
+   }
+
+ 
+    public void Quit()
+    {
+      PlayerPrefs.SetInt("replay",0);
+      FindObjectOfType<AudioManager>().Play("ButtonClick");
+      SceneManager.LoadScene(0);
+    }
+
+
+    public void QuitGame()
+    {
+      Application.Quit();
+    }
+
+
+
+}
