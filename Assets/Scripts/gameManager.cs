@@ -24,6 +24,12 @@ public class gameManager : MonoBehaviour
    private bool isCounting = false; 
 
 
+   public AudioClip loosingClip; // Assign this in the inspector
+   public AudioClip winClip; // Assign this in the inspector
+   public AudioClip background_music; // Assign this in the inspector
+   private AudioSource audioSource;
+
+
 
    
    //public GameObject jumpButtonCanvas;
@@ -31,6 +37,9 @@ public class gameManager : MonoBehaviour
 
     private void Start(){
         Time.timeScale = 1;
+         audioSource = GameObject.FindGameObjectWithTag("music").GetComponent<AudioSource>();
+         audioSource.clip = background_music;
+          audioSource.Play();
     }
 
     void Awake()
@@ -76,6 +85,8 @@ public class gameManager : MonoBehaviour
    {
     PlayerPrefs.SetInt("replay",1);
     FindObjectOfType<AudioManager>().Play("ButtonClick");
+    audioSource.clip = background_music;
+    audioSource.Play();
     SceneManager.LoadScene(0);
    }
 
@@ -123,10 +134,14 @@ public class gameManager : MonoBehaviour
       {
          gameOverCanvas.SetActive(true);
          ScoreCanvas.SetActive(false);
+         audioSource.clip = loosingClip;
+         audioSource.Play();
          
       }else{
         youwinCanvas.SetActive(true);
         ScoreCanvas.SetActive(false);
+        audioSource.clip = winClip;
+        audioSource.Play();
        
       }
       Time.timeScale = 0;

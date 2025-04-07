@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour
     public AudioSource audioSource;
 
   
-
+  
 
    
 
@@ -147,6 +147,11 @@ public class UIController : MonoBehaviour
     public void QuitGame()
     {
       Application.Quit();
+    }
+
+    public void OnHover()
+    {
+        FindObjectOfType<AudioManager>().Play("Hover");
     }
 
 
